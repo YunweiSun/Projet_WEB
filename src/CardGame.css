@@ -1,0 +1,92 @@
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+  
+  .card {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  
+  .card .card-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+  }
+  
+  .card.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .card .card-front,
+  .card .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  
+  .card .card-front {
+    background-color: #ddd;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .card .card-back {
+    background-color: #333;
+    border-radius: 10px;
+  }
+  
+  .card .card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .container {
+    background-image: url('./images/background.jpg');
+    background-size: cover;
+    height: 100vh; 
+    width: 100vw;
+  }
+
+  .title {
+    color: #22a6e4; 
+    text-align: center;
+
+  }
+  
+  .score {
+    color: #ff0000; 
+    text-align: center;
+  }
+
+  .bouttonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .restartGame {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  
+  

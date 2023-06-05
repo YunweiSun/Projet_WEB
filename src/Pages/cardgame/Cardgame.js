@@ -1,33 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import './Cardgame.css';
+import './CardGame.css'; 
 import Modal from 'react-modal';
 
-export default function CardGame() {
+const CardGame = () => {
   const [cards, setCards] = useState([
     { id: 1, src: '/images/card1.png', isFlipped: false, isMatched: false },
     { id: 2, src: '/images/card1.png', isFlipped: false, isMatched: false },
     { id: 3, src: '/images/card2.png', isFlipped: false, isMatched: false },
     { id: 4, src: '/images/card2.png', isFlipped: false, isMatched: false }
   ]);
-  const [flippedCards, setFlippedCards] = useState([]);
-  const [score, setScore] = useState(0);
-  const [ShowSuccess, setShowSuccess] = useState(false);
-  const [cardPairs, setCardPairs] = useState([]);
+  const [flippedCards, setFlippedCards] = useState([]); 
+  const [score, setScore] = useState(0); 
+  const [ShowSuccess, setShowSuccess] = useState(false); 
+  const [cardPairs,setCardPairs] = useState([]);
   const [timer, setTimer] = useState();
   const [gameTime, setGameTime] = useState(0);
 
-  function startTimer() {
+  const startTimer = () => {
     setGameTime(0);
     const interval = setInterval(() => {
       setGameTime((prevTime) => prevTime + 1);
     }, 1000);
     setTimer(interval);
-  }
+  };
 
   useEffect(() => {
 
-
-    function checkForMatch() {
+    
+    const checkForMatch = () => {
       if (flippedCards.length === 2) {
         const [card1, card2] = flippedCards;
         if (card1.src === card2.src) {
@@ -50,7 +50,7 @@ export default function CardGame() {
                   : card
               )
             );
-          }, 1000);
+          }, 500);
         }
         setFlippedCards([]);
       }
@@ -63,10 +63,11 @@ export default function CardGame() {
     }
   }, [flippedCards]);
 
-  function handleCardClick(card) {
+  const handleCardClick = (card) => {
     if (!timer) {
-      startTimer();
+      startTimer(); 
     }
+
     if (card.isFlipped || card.isMatched) return;
 
     setCards((prevCards) =>
@@ -75,12 +76,13 @@ export default function CardGame() {
       )
     );
     setFlippedCards((prevFlippedCards) => [...prevFlippedCards, card]);
-  }
+  };
 
-  function allCardsMatched() {
-    return cardPairs.length === 2;
-  }
-  function restartGame() {
+  const allCardsMatched = () => {
+    return cardPairs.length >= 2;
+  };
+  
+  const restartGame = () => {
     const resetCards = cards.map((card) => {
       return {
         ...card,
@@ -88,15 +90,16 @@ export default function CardGame() {
         isMatched: false,
       };
     });
+    setCardPairs([]);
     setTimer(null);
     setGameTime(0);
     setCards(resetCards);
     setFlippedCards([]);
     setScore(0);
-  }
+  };
 
   return (
-    <div className='container'>
+    <div className='container'> 
       <div>
         <h1 className='title'>Memory Card Game</h1>
         <p className='score'>Score: {score}</p>
@@ -108,20 +111,26 @@ export default function CardGame() {
               className={`card ${card.isFlipped ? 'flipped' : ''}`}
               onClick={() => handleCardClick(card)}
             >
-              <img src={card.isFlipped || card.isMatched ? card.src :' /images/dos.png'} alt="Card" />
+              <img src={card.isFlipped || card.isMatched ? card.src : '/images/dos.png'} alt="Card" />
             </div>
           ))}
         </div>
 
         <Modal isOpen={ShowSuccess}>
-          <div>Congratulations, time used: {gameTime} seconds, score: {score}</div>
-          <button onClick={() => setShowSuccess(false)}>Close</button>
+          <div className='notif'>Congratulations, time used: {gameTime} seconds, score: {score}</div>
+          <div className='bouttonContainer'>
+            <button className='restartGame' onClick={() => setShowSuccess(false)}>Close</button>
+          </div>
+
         </Modal>
 
       </div>
       <div className='bouttonContainer'>
         <button className='restartGame' onClick={restartGame}>Restart</button>
+          <button className='restartGame'>Next level</button>
       </div>
     </div>
   );
-}
+};
+
+export default CardGame;

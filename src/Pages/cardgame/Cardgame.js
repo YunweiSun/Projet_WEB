@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './CardGame.css'; 
+import './Cardgame.css'; 
 import Modal from 'react-modal';
 
 const CardGame = () => {
@@ -25,8 +25,6 @@ const CardGame = () => {
   };
 
   useEffect(() => {
-
-    
     const checkForMatch = () => {
       if (flippedCards.length === 2) {
         const [card1, card2] = flippedCards;

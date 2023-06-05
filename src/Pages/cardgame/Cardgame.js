@@ -16,18 +16,18 @@ export default function CardGame() {
   const [timer, setTimer] = useState();
   const [gameTime, setGameTime] = useState(0);
 
-  const startTimer = () => {
+  function startTimer() {
     setGameTime(0);
     const interval = setInterval(() => {
       setGameTime((prevTime) => prevTime + 1);
     }, 1000);
     setTimer(interval);
-  };
+  }
 
   useEffect(() => {
 
 
-    const checkForMatch = () => {
+    function checkForMatch() {
       if (flippedCards.length === 2) {
         const [card1, card2] = flippedCards;
         if (card1.src === card2.src) {
@@ -63,7 +63,7 @@ export default function CardGame() {
     }
   }, [flippedCards]);
 
-  const handleCardClick = (card) => {
+  function handleCardClick(card) {
     if (!timer) {
       startTimer();
     }
@@ -75,12 +75,12 @@ export default function CardGame() {
       )
     );
     setFlippedCards((prevFlippedCards) => [...prevFlippedCards, card]);
-  };
+  }
 
-  const allCardsMatched = () => {
+  function allCardsMatched() {
     return cardPairs.length === 2;
-  };
-  const restartGame = () => {
+  }
+  function restartGame() {
     const resetCards = cards.map((card) => {
       return {
         ...card,
@@ -93,7 +93,7 @@ export default function CardGame() {
     setCards(resetCards);
     setFlippedCards([]);
     setScore(0);
-  };
+  }
 
   return (
     <div className='container'>

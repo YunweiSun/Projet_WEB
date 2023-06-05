@@ -1,33 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import './CardGame.css'; 
+import './Cardgame.css';
 import Modal from 'react-modal';
 
-const CardGame = () => {
+export default function CardGame() {
   const [cards, setCards] = useState([
     { id: 1, src: '/images/card1.png', isFlipped: false, isMatched: false },
     { id: 2, src: '/images/card1.png', isFlipped: false, isMatched: false },
     { id: 3, src: '/images/card2.png', isFlipped: false, isMatched: false },
     { id: 4, src: '/images/card2.png', isFlipped: false, isMatched: false }
   ]);
-  const [flippedCards, setFlippedCards] = useState([]); 
-  const [score, setScore] = useState(0); 
-  const [ShowSuccess, setShowSuccess] = useState(false); 
-  const [cardPairs,setCardPairs] = useState([]);
+  const [flippedCards, setFlippedCards] = useState([]);
+  const [score, setScore] = useState(0);
+  const [ShowSuccess, setShowSuccess] = useState(false);
+  const [cardPairs, setCardPairs] = useState([]);
   const [timer, setTimer] = useState();
   const [gameTime, setGameTime] = useState(0);
 
-  const startTimer = () => {
+  function startTimer() {
     setGameTime(0);
     const interval = setInterval(() => {
       setGameTime((prevTime) => prevTime + 1);
     }, 1000);
     setTimer(interval);
-  };
+  }
 
   useEffect(() => {
 
-    
-    const checkForMatch = () => {
+
+    function checkForMatch() {
       if (flippedCards.length === 2) {
         const [card1, card2] = flippedCards;
         if (card1.src === card2.src) {
@@ -63,9 +63,9 @@ const CardGame = () => {
     }
   }, [flippedCards]);
 
-  const handleCardClick = (card) => {
+  function handleCardClick(card) {
     if (!timer) {
-      startTimer(); 
+      startTimer();
     }
     if (card.isFlipped || card.isMatched) return;
 
@@ -75,12 +75,12 @@ const CardGame = () => {
       )
     );
     setFlippedCards((prevFlippedCards) => [...prevFlippedCards, card]);
-  };
+  }
 
-  const allCardsMatched = () => {
+  function allCardsMatched() {
     return cardPairs.length === 2;
-  };
-  const restartGame = () => {
+  }
+  function restartGame() {
     const resetCards = cards.map((card) => {
       return {
         ...card,
@@ -93,10 +93,10 @@ const CardGame = () => {
     setCards(resetCards);
     setFlippedCards([]);
     setScore(0);
-  };
+  }
 
   return (
-    <div className='container'> 
+    <div className='container'>
       <div>
         <h1 className='title'>Memory Card Game</h1>
         <p className='score'>Score: {score}</p>
@@ -108,7 +108,7 @@ const CardGame = () => {
               className={`card ${card.isFlipped ? 'flipped' : ''}`}
               onClick={() => handleCardClick(card)}
             >
-              <img src={card.isFlipped || card.isMatched ? card.src : '/images/dos.png'} alt="Card" />
+              <img src={card.isFlipped || card.isMatched ? card.src :' /images/dos.png'} alt="Card" />
             </div>
           ))}
         </div>
@@ -124,6 +124,4 @@ const CardGame = () => {
       </div>
     </div>
   );
-};
-
-export default CardGame;
+}

@@ -16,8 +16,10 @@ export default function Home() {
     <>
       {gameStart ? 
         (
+          // Show board game if the pseudo is not empty, connection page otherwise
           (pseudo) ? <CardGame goHome={goHome}/> : <Connection setPseudo={setPseudo}></Connection>
         ) : (
+          // Show home page
           <div>
             <h2>Click on the play button ^^</h2>
             <button onClick={() => setGameStart(true)}>Play</button>

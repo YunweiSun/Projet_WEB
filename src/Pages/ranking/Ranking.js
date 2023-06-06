@@ -12,11 +12,9 @@ export default function Main() {
 
   return (
     <>
-      <h1>Memory Game!</h1>
+      <h1>Ranking</h1>
       <div className="game">
         <Ranking />
-        <button onClick={() => handleClick("Replay clicked!")}>Replay</button>
-        <button onClick={() => handleClick("Home clicked!")}>Home</button>
       </div>
     </>
   )

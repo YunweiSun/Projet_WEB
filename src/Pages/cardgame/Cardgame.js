@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import './Cardgame.css'; 
-import Modal from 'react-modal';
 
-const CardGame = () => {
+import './Cardgame.css'; 
+
+import Ranking from '../ranking/Ranking.js';
+
+const CardGame = ({goHome}) => {
   const [cards, setCards] = useState([
     { id: 1, src: '/images/card1.png', isFlipped: false, isMatched: false },
     { id: 2, src: '/images/card1.png', isFlipped: false, isMatched: false },
@@ -94,41 +96,45 @@ const CardGame = () => {
     setCards(resetCards);
     setFlippedCards([]);
     setScore(0);
+    setShowSuccess(false);
   };
 
   return (
-    <div className='container'> 
-      <div>
-        <h1 className='title'>Memory Card Game</h1>
-        <p className='score'>Score: {score}</p>
-        <p className='score'>Game time: {gameTime} seconds</p>
-        <div className="card-grid">
-          {cards.map((card) => (
-            <div
-              key={card.id}
-              className={`card ${card.isFlipped ? 'flipped' : ''}`}
-              onClick={() => handleCardClick(card)}
-            >
-              <img src={card.isFlipped || card.isMatched ? card.src : '/images/dos.png'} alt="Card" />
+    <>
+      {ShowSuccess ? 
+        (
+          <div>
+            <div className='notif'>Congratulations, time used: {gameTime} seconds, score: {score}</div>
+            <Ranking/>
+            <div className='bouttonContainer'>
+              <button className='restartGame' onClick={restartGame}>Replay</button>
+              <button className='restartGame' onClick={() => {
+                setShowSuccess(false);
+                goHome();
+              }}>
+                Close
+              </button>
             </div>
-          ))}
-        </div>
-
-        <Modal isOpen={ShowSuccess}>
-          <div className='notif'>Congratulations, time used: {gameTime} seconds, score: {score}</div>
-          <div className='bouttonContainer'>
-            <button className='restartGame' onClick={() => setShowSuccess(false)}>Close</button>
           </div>
-
-        </Modal>
-
-      </div>
-      <div className='bouttonContainer'>
-        <button className='restartGame' onClick={restartGame}>Restart</button>
-          <button className='restartGame'>Next level</button>
-      </div>
-    </div>
-  );
-};
+        ) : (
+          <div>
+            <p className='score'>Score: {score}</p>
+            <p className='score'>Game time: {gameTime} seconds</p>
+            <div className="card-grid">
+              {cards.map((card) => (
+                <div
+                  key={card.id}
+                  className={`card ${card.isFlipped ? 'flipped' : ''}`}
+                  onClick={() => handleCardClick(card)}
+                >
+                  <img src={card.isFlipped || card.isMatched ? card.src : '/images/dos.png'} alt="Card" />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+    </>
+  )
+}
 
 export default CardGame;

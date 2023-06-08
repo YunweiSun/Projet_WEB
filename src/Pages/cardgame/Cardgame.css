@@ -1,7 +1,20 @@
-.card-grid {
-  display: flex;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
+.card-level1 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  align-items: center;
+}
+
+.card-level2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  align-items: center;
+}
+
+.card-level3 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   justify-content: center;
   align-items: center;
 }
@@ -13,7 +26,7 @@
   perspective: 1000px;
   cursor: pointer;
 }
-
+  
 .card .card-inner {
   position: absolute;
   width: 100%;
@@ -61,26 +74,26 @@
   background-size: cover;
   height: 100vh; 
   width: 100vw;
+  display: flex;
+  justify-content: center;
 }
 
 .title {
   color: #22a6e4; 
   text-align: center;
-
 }
 
-.score {
+.score, .gameTime, .level {
   color: #ff0000; 
   text-align: center;
 }
 
 .bouttonContainer {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
 }
 
-.restartGame {
+.restartButton, .nextLevelButton, .closeButton {
   background-color: #4caf50;
   color: white;
   padding: 10px 20px;
@@ -90,8 +103,46 @@
   font-size: 16px;
 }
 
+.restartButton:hover,
+.nextLevelButton:hover,
+.closeButton:hover {
+  /* Button styles on hover */
+  background-color: #06830e;
+}
+
+.restartButton:active,
+.nextLevelButton:active,
+.closeButton:active {
+  /* Button styles when active */
+  background-color: #035408;
+  color: #070606;
+}
+
 .notif {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   align-items: center;
   justify-content: center;
+  width: 300px; 
+  height: 100px; 
+  padding: 10px; 
+  background-color: #f2f2f2; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  font-size: 17px; 
+  color: #333;
+}
+
+.notifContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999; 
 }

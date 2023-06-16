@@ -10,6 +10,8 @@
   grid-template-columns: repeat(4, 1fr);
   justify-content: center;
   align-items: center;
+  grid-row-gap: 200px;
+  transform: scale(0.9);
 }
 
 .card-level3 {
@@ -17,9 +19,12 @@
   grid-template-columns: repeat(4, 1fr);
   justify-content: center;
   align-items: center;
+  grid-row-gap: 200px;
+  transform: scale(0.9);
 }
 
 .card {
+  transform: scale(0.4);
   position: relative;
   width: 200px;
   height: 300px;

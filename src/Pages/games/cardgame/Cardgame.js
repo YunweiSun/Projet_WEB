@@ -8,18 +8,18 @@ import './Cardgame.css';
 const CardGame = ({ goHome }) => {
   const [level, setLevel] = useState(0);
   const [cards, setCards] = useState([
-    { id: 1, src: '/images/card2.png', isFlipped: false, isMatched: false },
-    { id: 2, src: '/images/card1.png', isFlipped: false, isMatched: false },
-    { id: 3, src: '/images/card2.png', isFlipped: false, isMatched: false },
-    { id: 4, src: '/images/card1.png', isFlipped: false, isMatched: false },
-    { id: 5, src: '/images/card4.png', isFlipped: false, isMatched: false },
-    { id: 6, src: '/images/card3.png', isFlipped: false, isMatched: false },
-    { id: 7, src: '/images/card3.png', isFlipped: false, isMatched: false },
-    { id: 8, src: '/images/card4.png', isFlipped: false, isMatched: false },
-    { id: 9, src: '/images/card6.png', isFlipped: false, isMatched: false },
-    { id: 10, src: '/images/card5.png', isFlipped: false, isMatched: false },
-    { id: 11, src: '/images/card6.png', isFlipped: false, isMatched: false },
-    { id: 12, src: '/images/card5.png', isFlipped: false, isMatched: false }
+    { id: 1, src: '/images/Sigles/ARQ-.png', isFlipped: false, isMatched: false },
+    { id: 2, src: '/images/Sigles/ARQ.png', isFlipped: false, isMatched: false },
+    { id: 3, src: '/images/Sigles/ATM-.png', isFlipped: false, isMatched: false },
+    { id: 4, src: '/images/Sigles/ATM.png', isFlipped: false, isMatched: false },
+    { id: 5, src: '/images/Sigles/BGP-.png', isFlipped: false, isMatched: false },
+    { id: 6, src: '/images/Sigles/BGP.png', isFlipped: false, isMatched: false },
+    { id: 7, src: '/images/Sigles/CSMA-CA-.png', isFlipped: false, isMatched: false },
+    { id: 8, src: '/images/Sigles/CSMA-CA.png', isFlipped: false, isMatched: false },
+    { id: 9, src: '/images/Sigles/CSMA-CD-.png', isFlipped: false, isMatched: false },
+    { id: 10, src: '/images/Sigles/CSMA-CD.png', isFlipped: false, isMatched: false },
+    { id: 11, src: '/images/Sigles/DNS.png', isFlipped: false, isMatched: false },
+    { id: 12, src: '/images/Sigles/DNS-.png', isFlipped: false, isMatched: false }
   ]);
   const totalCards = () => {
     let numCards = 0;
@@ -67,12 +67,23 @@ const CardGame = ({ goHome }) => {
     setTimer(interval);
   };
 
+  const checkIfMatched = (card1, card2) => {
+    const src1 = card1.src;
+    const src2 = card2.src;
+
+    if (src1.endsWith("-.png") && src2.endsWith(".png")) {
+      return src1.slice(0, -5) === src2.slice(0, -4);
+    } else if (src2.endsWith("-.png") && src1.endsWith(".png")) {
+      return src2.slice(0, -5) === src1.slice(0, -4);
+    }
+  };
+
   useEffect(() => {
     shuffle();
     const checkForMatch = () => {
       if (flippedCards.length === 2) {
         const [card1, card2] = flippedCards;
-        if (card1.src === card2.src) {
+        if (checkIfMatched(card1, card2)) {
           setCardPairs([...cardPairs, cards]);
 
           setCards((prevCards) =>
@@ -177,14 +188,14 @@ const CardGame = ({ goHome }) => {
                   className={`card ${card.isFlipped ? 'flipped' : ''}`}
                   onClick={() => handleCardClick(card)}
                 >
-                  <img src={card.isFlipped || card.isMatched ? card.src : '/images/dos.png'} alt="Card" />
+                  <img src={card.isFlipped || card.isMatched ? card.src : '/images/Sigles/dos de carte.png'} alt="Card" />
                 </div>
               ))}
             </div>
           </>
         )
       ) : (
-        <Levels setLevel={setLevel}/>
+        <Levels setLevel={setLevel} />
       )
       }
 

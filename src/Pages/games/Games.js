@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Cardgame from "./Cardgame.js";
+import Cardgame from "./cardgame/Cardgame.js";
 import Morpion from "./Morpion.js";
 import Quizz from "./Quizz.js";
 import Divers from "./Divers.js";
@@ -13,7 +13,7 @@ export default function Games({ goHome }) {
 
 	const launchGame = (game) => {
 		if (game === "memory") {
-			return <Cardgame />
+			return <Cardgame goHome={goHome}/>
 		} else if (game === "morpion") {
 			return <Morpion />
 		} else if (game === "quizz") {

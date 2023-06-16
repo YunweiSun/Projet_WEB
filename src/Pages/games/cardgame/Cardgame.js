@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-import './Cardgame.css'; 
+import Ranking from './Ranking.js';
+import Levels from './Levels.js';
 
-import Ranking from '../ranking/Ranking.js';
+import './Cardgame.css';
 
-const CardGame = ({goHome, level, setLevel}) => {
+const CardGame = ({ goHome }) => {
+  const [level, setLevel] = useState(0);
   const [cards, setCards] = useState([
     { id: 1, src: '/images/card2.png', isFlipped: false, isMatched: false },
     { id: 2, src: '/images/card1.png', isFlipped: false, isMatched: false },
@@ -21,12 +23,12 @@ const CardGame = ({goHome, level, setLevel}) => {
   ]);
   const totalCards = () => {
     let numCards = 0;
-    if (level === 1) {  
+    if (level === 1) {
       numCards = 4;
-    } else if(level === 2) {
+    } else if (level === 2) {
       numCards = 8;
-    } else if(level === 3) {
-      numCards = 12;  
+    } else if (level === 3) {
+      numCards = 12;
     }
     const newCards = cards.slice(0, numCards);
     return newCards;
@@ -42,18 +44,18 @@ const CardGame = ({goHome, level, setLevel}) => {
   };
   const className = () => {
     let newClassName = "card-level1";
-    if(level === 2) {
+    if (level === 2) {
       newClassName = "card-level2";
-    } else if(level === 3) {
+    } else if (level === 3) {
       newClassName = "card-level3";
     }
     return newClassName;
   };
   const cardClassName = className();
-  const [flippedCards, setFlippedCards] = useState([]); 
-  const [score, setScore] = useState(0); 
-  const [ShowSuccess, setShowSuccess] = useState(false); 
-  const [cardPairs,setCardPairs] = useState([]);
+  const [flippedCards, setFlippedCards] = useState([]);
+  const [score, setScore] = useState(0);
+  const [ShowSuccess, setShowSuccess] = useState(false);
+  const [cardPairs, setCardPairs] = useState([]);
   const [timer, setTimer] = useState();
   const [gameTime, setGameTime] = useState(0);
 
@@ -105,7 +107,7 @@ const CardGame = ({goHome, level, setLevel}) => {
 
   const handleCardClick = (card) => {
     if (!timer) {
-      startTimer(); 
+      startTimer();
     }
 
     if (card.isFlipped || card.isMatched) return;
@@ -127,7 +129,7 @@ const CardGame = ({goHome, level, setLevel}) => {
       return cardPairs.length === 6;
     }
   };
-  
+
   const restartGame = () => {
     const resetCards = cards.map((card) => {
       return {
@@ -147,11 +149,11 @@ const CardGame = ({goHome, level, setLevel}) => {
 
   return (
     <>
-      {ShowSuccess ? 
-        (
+      {(level > 0) ? (
+        ShowSuccess ? (
           <div>
             <div>Congratulations, time used: {gameTime} seconds, score: {score}</div>
-            <Ranking/>
+            <Ranking />
             <div className='bouttonContainer'>
               <button className='restartButton' onClick={restartGame}>Replay</button>
               <button className='closeButton' onClick={() => {
@@ -180,7 +182,14 @@ const CardGame = ({goHome, level, setLevel}) => {
               ))}
             </div>
           </>
-        )}
+        )
+      ) : (
+        <Levels setLevel={setLevel}/>
+      )
+      }
+
+
+
     </>
   )
 }

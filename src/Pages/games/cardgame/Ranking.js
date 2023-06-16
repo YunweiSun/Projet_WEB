@@ -4,8 +4,8 @@ import { useMemo } from "react";
 
 import './Ranking.css';
 
-import scores from "../../Data/scores.json";
-import trophy from "../../Data/images/price/trophy.svg";
+import scores from "../../../Data/scores.json";
+import trophy from "../../../Data/images/price/trophy.svg";
 
 export default function Main() {
   return (

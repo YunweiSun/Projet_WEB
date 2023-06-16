@@ -14,8 +14,7 @@ To-do list of essential remaining tasks:
 - [ ] Add Morpion component
 - [ ] Create Divers component
 - [ ] Create Quizz component
-- [ ] Remove useless files and images
-- [ ] Remove useless styles in all CSS files
+- [ ] Remove all usefull files, images and code lines
 
 ## Use
 

@@ -1,5 +1,22 @@
 # Memory card game
 
+## Tasks
+
+To-do list of essential remaining tasks:
+
+- [ ] Style of Home
+- [ ] Style of Games (game selection component)
+- [ ] Style of Cardgame
+- [ ] Style of Levels (for cardgame)
+- [ ] Style of Ranking of cardgame
+- [ ] Style of Morpion
+- [ ] Scores management
+- [ ] Add Morpion component
+- [ ] Create Divers component
+- [ ] Create Quizz component
+- [ ] Remove useless files and images
+- [ ] Remove useless styles in all CSS files
+
 ## Use
 
 1. Clone the git repository and move to the project file

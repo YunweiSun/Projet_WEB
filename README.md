@@ -9,4 +9,4 @@
 
 ## Contributors
 
-[Yunwei SUN](https://github.com/YunweiSun), [BEYE Sokhna](https://github.com/ssokhna), [ROBINSON Camille](https://github.com/camileen)
+[Yunwei SUN](https://github.com/YunweiSun), [BEYE Sokhna](https://github.com/ssokhna), [ROBINSON Camille](https://github.com/camileen), [GE Yanjun](https://github.com/yanjunGE)

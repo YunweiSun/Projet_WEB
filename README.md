@@ -11,7 +11,7 @@ To-do list of essential remaining tasks:
 - [ ] Style of Ranking of cardgame
 - [ ] Style of Morpion
 - [ ] Scores management
-- [ ] Add Morpion component
+- [x] Add Gomoku component
 - [ ] Create Divers component
 - [ ] Create Quizz component
 - [ ] Remove all usefull files, images and code lines

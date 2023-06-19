@@ -1,0 +1,112 @@
+.gomoku {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.board {
+  
+  display: inline-block;
+  border: 7px solid rgb(7, 149, 226); /* 增加棋盘边框粗细 */
+  border-radius: 10px; /* 添加圆角 */
+  background-color: rgb(191, 246, 239);
+
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #75cef7;
+  border-radius: 5px; /* 添加圆角 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 40px; /* 调整'O'的大小 */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+
+}
+
+
+.message {
+  margin-top: 20px;
+  font-size: 18px;
+}
+:root {
+  --backgroundColor: rgba(246, 241, 209);
+  --colorShadeA: rgb(218, 111, 24);
+  --colorShadeB: rgb(247, 187, 91);
+  --colorShadeC: rgb(228, 244, 134);
+  --colorShadeD: rgb(228, 232, 187);
+  --colorShadeE: rgb(252, 255, 205);
+}
+
+* {
+  box-sizing: border-box;
+}
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: 1rem;
+  color: var(--colorShadeA);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: inherit;
+}
+
+button.big-button {
+  padding: 1em 2em;
+  border: 2px solid var(--colorShadeA);
+  border-radius: 1em;
+  background: var(--colorShadeE);
+  transform-style: preserve-3d;
+  transition: all 175ms cubic-bezier(0, 0, 1, 1);
+}
+button.big-button::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--colorShadeC);
+  border-radius: inherit;
+  box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.75em 0 0 var(--colorShadeA);
+  transform: translate3d(0, 0.75em, -1em);
+  transition: all 175ms cubic-bezier(0, 0, 1, 1);
+}
+
+button.big-button:hover {
+  background: var(--colorShadeD);
+  transform: translate(0, 0.375em);
+}
+
+button.big-button:hover::before {
+  transform: translate3d(0, 0.75em, -1em);
+}
+
+button.big-button:active {
+  transform: translate(0em, 0.75em);
+}
+
+button.big-button:active::before {
+  transform: translate3d(0, 0, -1em);
+
+  box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.25em 0 0 var(--colorShadeB);
+}

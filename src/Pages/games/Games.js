@@ -2,8 +2,6 @@ import { useState } from "react";
 
 import Cardgame from "./cardgame/Cardgame.js";
 import Gomoku from "./Gomoku.js";
-import Quizz from "./Quizz.js";
-import Divers from "./Divers.js";
 
 import './Games.css'
 
@@ -16,10 +14,6 @@ export default function Games({ goHome }) {
 			return <Cardgame goHome={goHome}/>
 		} else if (game === "gomoku") {
 			return <Gomoku goHome={goHome}/>
-		} else if (game === "quizz") {
-			return <Quizz />
-		} else if (game === "divers") {
-			return <Divers />
 		}
 	}
 

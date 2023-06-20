@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import Ranking from './Ranking.js';
 import Levels from './Levels.js';
 
 import './Cardgame.css';
@@ -164,7 +163,6 @@ const CardGame = ({ goHome }) => {
         ShowSuccess ? (
           <div>
             <div>Congratulations, time used: {gameTime} seconds, score: {score}</div>
-            <Ranking />
             <div className='bouttonContainer'>
               <button className='restartButton' onClick={restartGame}>Replay</button>
               <button className='closeButton' onClick={() => {

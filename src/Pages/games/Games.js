@@ -26,8 +26,6 @@ export default function Games({ goHome }) {
 					<div className='container1'>
 						<button className='i' onClick={() => setGame("memory")}>MEMORY</button>
 						<button className='i' onClick={() => setGame("gomoku")}>GOMOKU</button>
-						<button className='i' onClick={() => setGame("quizz")}>QUIZZ</button>
-						<button className='i' onClick={() => setGame("divers")}>DIVERS</button>
 						<button className="retour" onClick={goHome}>Retour</button>
 					</div>
 				</div>

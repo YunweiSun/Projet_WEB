@@ -1,21 +1,5 @@
 # Memory card game
 
-## Tasks
-
-To-do list of essential remaining tasks:
-
-- [ ] Style of Home
-- [ ] Style of Games (game selection component)
-- [ ] Style of Cardgame
-- [ ] Style of Levels (for cardgame)
-- [ ] Style of Ranking of cardgame
-- [ ] Style of Morpion
-- [ ] Scores management
-- [x] Add Gomoku component
-- [ ] Create Divers component
-- [ ] Create Quizz component
-- [ ] Remove all usefull files, images and code lines
-
 ## Use
 
 1. Clone the git repository and move to the project file

@@ -162,16 +162,22 @@ const CardGame = ({ goHome }) => {
       {(level > 0) ? (
         ShowSuccess ? (
           <div>
-            <div>Congratulations, time used: {gameTime} seconds, score: {score}</div>
+            <br/>
+            <br/>
+            <div className='notif2'>Congratulations, time used: {gameTime} seconds, score: {score}</div>
             <div className='bouttonContainer'>
-              <button className='restartButton' onClick={restartGame}>Replay</button>
-              <button className='closeButton' onClick={() => {
+              <br/>
+              
+                
+              <button class="button-retour" onClick={restartGame}>Replay</button>
+              <button class="button-retour" onClick={() => {
                 setShowSuccess(false);
                 setLevel(0);
                 goHome();
               }}>
                 Close
               </button>
+              
             </div>
           </div>
         ) : (
@@ -196,8 +202,6 @@ const CardGame = ({ goHome }) => {
         <Levels setLevel={setLevel} />
       )
       }
-
-
 
     </>
   )

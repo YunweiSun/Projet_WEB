@@ -3,6 +3,7 @@
   grid-template-columns: repeat(4, 1fr);
   justify-content: center;
   align-items: center;
+  transform: scale(0.8);
 }
 
 .card-level2 {
@@ -11,7 +12,7 @@
   justify-content: center;
   align-items: center;
   grid-row-gap: 200px;
-  transform: scale(0.9);
+  transform: scale(0.8);
 }
 
 .card-level3 {
@@ -20,14 +21,14 @@
   justify-content: center;
   align-items: center;
   grid-row-gap: 200px;
-  transform: scale(0.9);
+  transform: scale(0.8);
 }
 
-.card {
+.card { 
   transform: scale(0.4);
   position: relative;
-  width: 200px;
-  height: 300px;
+  width: 1px;
+  height: 250px;
   perspective: 1000px;
   cursor: pointer;
 }
@@ -88,14 +89,18 @@
   text-align: center;
 }
 
-.score, .gameTime, .level {
-  color: #ff0000; 
+.score, .gameTime, .level, .notif2 {
+  color: #510c0c; 
   text-align: center;
+  font-size: 2vw;
+  font-family:'Courier New', Courier, monospace;
+  font-weight: bold;
 }
 
 .bouttonContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+
 }
 
 .restartButton, .nextLevelButton, .closeButton {

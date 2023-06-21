@@ -2,7 +2,8 @@ import { useState } from "react";
 
 import Cardgame from "./cardgame/Cardgame.js";
 import Gomoku from "./Gomoku.js";
-
+import cdLogo from './CDlogo.jpeg';
+import gomokuLogo from './gomokulogo.jpeg';
 import './Games.css'
 
 
@@ -19,14 +20,32 @@ export default function Games({ goHome }) {
 
 	return (
 		<>
+		
 			{game ? (
 				launchGame(game)
 			) : (
 				<div className='fond'>
-					<div className='container1'>
-						<button className='i' onClick={() => setGame("memory")}>MEMORY</button>
-						<button className='i' onClick={() => setGame("gomoku")}>GOMOKU</button>
-						<button className="retour" onClick={goHome}>Retour</button>
+					<div class="boxG">
+					<div className='container1'><table>
+						<tr>
+							<td>
+								<tr><img src={cdLogo} alt="CD Logo" /></tr>
+								<tr><button class="big-button"  onClick={() => setGame("memory")}>MEMORY</button></tr>
+								</td>
+							<td>
+							<tr><img src={gomokuLogo} alt="Gomoku Logo" /></tr>
+								<tr><button class="big-button"  onClick={() => setGame("gomoku")}>GOMOKU</button></tr>
+								</td>
+						</tr>
+						
+						<br/>
+						<br/>
+						<br/>
+						<div class="retour"><button class="button-retour"  onClick={goHome}>Retour</button></div>
+							
+						
+						</table>
+					</div>
 					</div>
 				</div>
 			)

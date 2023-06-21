@@ -22,18 +22,20 @@ export default function Home() {
           <Games goHome={goHome}/>
         ) : (
           // Show home page
-          <div className='fond'>
+          <div >
             <h1 className='CG'>WELCOME TO </h1>
             <h1 className='CG1'> TC's Game! </h1>
             <ul className='conn'>
               <li className='b1'>Nom d'utilisateur :  </li>
+              
               <li className='b2'>
                 <input
                   type="text"
                   onChange={handleInputChange}
                 />
               </li>
-              <button className='go' onClick={() => setGameStart(true)}>C'est parti!</button>
+              <br/>
+              <button className='big-button' onClick={() => setGameStart(true)}>C'est parti!</button>
             </ul>
           </div>
         )}

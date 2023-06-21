@@ -1,6 +1,14 @@
 .gomoku {
-  text-align: center;
+  text-align:center;
   margin-top: 50px;
+ 
+}
+.box{
+  text-align:center;
+  position: absolute;
+  left: 20%;
+  width: 50%;
+  
 }
 
 .board {
@@ -39,10 +47,14 @@
 :root {
   --backgroundColor: rgba(246, 241, 209);
   --colorShadeA: rgb(218, 111, 24);
+  --colorShadeA1: rgb(11, 101, 19);
   --colorShadeB: rgb(247, 187, 91);
+  --colorShadeB1: rgb(27, 190, 40);
   --colorShadeC: rgb(228, 244, 134);
+  --colorShadeC1: rgb(197, 239, 29);
   --colorShadeD: rgb(228, 232, 187);
   --colorShadeE: rgb(252, 255, 205);
+
 }
 
 * {
@@ -53,7 +65,7 @@
   box-sizing: border-box;
 }
 
-button {
+button.big-button {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -109,4 +121,73 @@ button.big-button:active::before {
   transform: translate3d(0, 0, -1em);
 
   box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.25em 0 0 var(--colorShadeB);
+}
+
+button.button-retour {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: 0.7rem;
+  color: var(--colorShadeA1);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: inherit;
+}
+
+button.button-retour {
+  padding: 1em 2em;
+  border: 2px solid var(--colorShadeA1);
+  border-radius: 1em;
+  background: var(--colorShadeE);
+  transform-style: preserve-3d;
+  transition: all 175ms cubic-bezier(0, 0, 1, 1);
+}
+button.button-retour::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--colorShadeC1);
+  border-radius: inherit;
+  box-shadow: 0 0 0 2px var(--colorShadeB1), 0 0.75em 0 0 var(--colorShadeA1);
+  transform: translate3d(0, 0.75em, -1em);
+  transition: all 175ms cubic-bezier(0, 0, 1, 1);
+}
+
+button.button-retour:hover {
+  background: var(--colorShadeD);
+  transform: translate(0, 0.375em);
+}
+
+button.button-retour:hover::before {
+  transform: translate3d(0, 0.75em, -1em);
+}
+
+button.button-retour:active {
+  transform: translate(0em, 0.75em);
+}
+
+button.button-retour:active::before {
+  transform: translate3d(0, 0, -1em);
+
+  box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.25em 0 0 var(--colorShadeB);
+}
+h2{
+  font-family:'Courier New', Courier, monospace;
+  font-size: 3vw;
+  
+}
+.rightbox{
+  
+  position: absolute;
+  right: 40%;
+  
 }

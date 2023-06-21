@@ -253,7 +253,12 @@ return false;
   );
 
   return (
+    <div className='box'>
     <div className="gomoku">
+      
+      
+      <table>
+      <h2>Gomoku</h2>
       <div className="board">
         {board.map((row, rowIndex) => (
           <div className="row" key={rowIndex}>
@@ -261,11 +266,21 @@ return false;
           </div>
         ))}
       </div>
+      
       {winner && <div className="winner">Winner: {winner}</div>}
+      
+      
       {isBoardFull && !winner && <div className="draw">ne one wins</div>}
+      
+      <tr>
+      
+      
       <div>
-      <button class="big-button" onClick={resetGame}>restart</button></div>
-      <button onClick={goHome}>Return Home</button>
+      <button class="big-button" onClick={resetGame}>restart</button></div></tr>
+      
+      <tr><div class="rightbox"><button class="button-retour" onClick={goHome}>Return</button></div></tr>
+      
+      </table></div>
     </div>
 
   );
